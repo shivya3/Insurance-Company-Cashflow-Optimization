@@ -1,0 +1,20 @@
+SILENT=TRUE
+When I give silent as the last argument to tabula.read_pdf(), the mere existence of silent keyword causes it to be considered as True. 
+
+Setup()
+This function initializes the training environment and creates the transformation pipeline. Setup function must be called before executing 
+any other function. It takes two mandatory parameters: data and target. All the other parameters are optional.
+The setup function performs several imperative steps required in machine learning such as cleaning missing values (if any), splitting the 
+data into train and test, setting up cross validation strategy, defining metrics, performing algorithm-specific transformations etc.
+
+compare_models()
+The Compare model function trains and evaluates performance of all estimators in the model library.
+The output of this function is a score grid with average cross validated scores.
+The magic function that trains multiple models, compares and evaluates performance metrics is compare_models. It returns the best model 
+based on ‘sort’ parameter that can be defined inside compare_models. By default, it uses ‘R2’ for regression use-case and ‘Accuracy’ for 
+classification use-case.
+
+finalize_model()
+Finalize model function trains a given estimator on the entire dataset including.
+Rest of the lines are for finalizing the best model returned through compare_models and saving it as a pickle file in your local diretory. 
+Last line returns the dataframe with details of model trained and their performance metrics.
